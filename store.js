@@ -225,7 +225,7 @@ class Dal {
 
   async zrangebyscoreAsync(key, l, h) {
     if(this.store._zset[key] == null) return
-    return this.store._zset[key].sort((a,b)=> a[0] > b[0] ? 1 : -1 ).filter(i=>i[0] >= l && i[0] <= h)
+    return this.store._zset[key].sort((a,b)=> a[0] > b[0] ? 1 : -1 ).filter(i=>i[0] >= l && i[0] <= h).map(i=>i[1])
   }
 
   async zremrangebyscoreAsync(key, l, h) {
