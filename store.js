@@ -85,9 +85,24 @@ class Dal {
     return 0
   }
 
+  async keys() {
+    const keys = []
+    const types = await this.getTypes()
+    types.forEach(t=>keys.concat(Object.keys(t)))
+    return keys
+  }
+
+  async getTypes() {
+    return [this.store._string, this.store._array, this.store._zset, this.store._hash]
+  }
+
   async existsAsync(key) {
-    if (this.store._string[key] == null) return 0
-    return 1
+    let exist = 0
+    const types = await this.getTypes()
+    types.forEach(t=>{
+      if (t.hasOwnProperty(key)) exist = 1
+    })
+    return exist
   }
 
   async delAsync(key) {
