@@ -17,6 +17,7 @@ const Wedis = require('wedis')
 const client = new Wedis
 
 client.setAsync('key', 'value')
+client.getAsync('key').then(value=>console.log(value))
 client.zaddAsync('key', 'score', 'value')
 client.hsetnxAsync('key', 'sub-key', 'value')
 ```
