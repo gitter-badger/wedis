@@ -84,6 +84,12 @@ class Dal {
     this.store._string[key] = value 
     return 0
   }
+  
+  async setnxAsync(key, value, ex, exValue) {
+    if (this.store._string[key] != null) return 0 
+    await this.setAsync(key, value, ex, exValue)
+    return 1
+  }
 
   async getAsync(key) {
     return this.store._string[key]
