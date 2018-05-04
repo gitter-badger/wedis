@@ -12,5 +12,6 @@ describe('wedis', function(){
   it('should success', function() {
     var db = new wedis()
     db.setAsync('a', 'b')
+    db.store.stop()
   })
 })

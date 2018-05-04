@@ -20,6 +20,9 @@ client.setAsync('key', 'value')
 client.getAsync('key').then(value=>console.log(value))
 client.zaddAsync('key', 'score', 'value')
 client.hsetnxAsync('key', 'sub-key', 'value')
+
+// gracefully shutdown
+client.store.stop().then(()=>{console.log('Stopped')})
 ```
 
 
