@@ -1,8 +1,8 @@
 {
-  "name": "digest-fetch",
-  "version": "0.0.7",
-  "description": "digest auth request plugin for fetch/node-fetch",
-  "main": "digest-fetch-src.js",
+  "name": "wedis",
+  "version": "0.0.1",
+  "description": "simple js implementation of redis as node lib",
+  "main": "index.js",
   "scripts": {
     "lint": "eslint --plugin markdown --ext js,md .",
     "test": "mocha --check-leaks --bail --no-exit --reporter spec test/",
@@ -11,32 +11,25 @@
     "build": "NODE_ENV=\"production\" webpack --optimize-minimize"
   },
   "keywords": [
-    "digest",
-    "auth",
-    "fetch",
-    "node-feth"
+    "redis",
+    "windows",
+    "node",
+    "js implementation",
+    "simulation"
   ],
   "author": "stefanliu@outlook.com",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devfans/digest-fetch.git"
+    "url": "git+https://github.com/devfans/wedis.git"
   },
   "devDependencies": {
     "after": "0.8.2",
-    "babel-loader": "^7.1.4",
-    "babel-polyfill": "^6.26.0",
-    "crypto-js": "^3.1.9-1",
     "eslint": "3.19.0",
     "eslint-plugin-markdown": "1.0.0-beta.6",
-    "express": "4.16.2",
-    "fetch": "^1.1.0",
     "istanbul": "1.0.0-alpha.2",
     "mocha": "2.5.3",
-    "node-fetch": "^2.1.2",
     "supertest": "1.1.0",
-    "webpack": "^4.6.0",
-    "webpack-cli": "^2.0.15"
   },
-  "homepage": "https://github.com/devfans/digest-fetch#readme"
+  "homepage": "https://github.com/devfans/wedis#readme"
 }
