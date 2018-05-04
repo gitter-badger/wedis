@@ -79,6 +79,7 @@ class Dal {
   constructor(options={}) {
     if (store[_db]) this.store = store._db
     else store[_db] = this.store = new Store(options)  
+    this.logger = options.logger || console
   }
 
   async setAsync(key, value, ex, exValue) {
