@@ -1,6 +1,6 @@
 {
   "name": "wedis",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "simple js implementation of redis as node lib",
   "main": "index.js",
   "scripts": {
