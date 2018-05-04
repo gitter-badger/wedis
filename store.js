@@ -40,7 +40,7 @@ class Store {
 
   async stop() {
     this.timers.forEach(t=>clearInterval(t))
-    logger.info("Saving database before exit..")
+    this.logger.info("Saving database before exit..")
     await this.dump()
   }
   
