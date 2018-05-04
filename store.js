@@ -84,6 +84,16 @@ class Dal {
     this.store._string[key] = value 
     return 0
   }
+
+  async existsAsync(key) {
+    if (this.store._string[key] == null) return 0
+    return 1
+  }
+
+  async delAsync(key) {
+    delete this.store._string[key] 
+    return 0
+  }
   
   async setnxAsync(key, value, ex, exValue) {
     if (this.store._string[key] != null) return 0 
