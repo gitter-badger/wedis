@@ -175,7 +175,7 @@ class Dal {
       this.logger.error('ERR value is not an integer or out of range')
       return
     }
-    await (this.hsetAsync(key, attr, ntValue + value))
+    await (this.hsetAsync(key, attr, intValue + value))
     return intValue + value
   }
 
