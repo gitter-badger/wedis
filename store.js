@@ -171,8 +171,8 @@ class Dal {
   async hincrbyAsync(key, attr, value) {
     if (!this.store._hash[key]) this.store._hash[key] = {}
     const intValue = parseInt(this.store._hash[key][attr] || 0)
-    if (!isNaN(intValue)) {
-      this.logger.error(Error('ERR value is not an integer or out of range'))
+    if (isNaN(intValue)) {
+      this.logger.error('ERR value is not an integer or out of range')
       return
     }
     await (this.hsetAsync(key, attr, ntValue + value))
