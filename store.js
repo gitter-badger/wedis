@@ -98,6 +98,14 @@ class Dal {
     return [this.store._string, this.store._array, this.store._zset, this.store._hash]
   }
 
+  async deleteKey(key) {
+    delete this.store._string[key]
+    delete this.store._array[key]
+    delete this.store._zset[key]
+    delete this.store._hash[key]
+    return 0
+  }
+
   async existsAsync(key) {
     let exist = 0
     const types = await this.getTypes()
@@ -204,13 +212,16 @@ class Dal {
 
   async lremAsync(key, count, value) {
     const list = this.store._array[key]
+    const h2t = count >= 0
+    let length = count == 0 ? list.length: count
+    if (length < 0) length = -length
+
     if (list == null) return 0
-    for (let i=0; i < count; i++) {
-      const index = list.indexOf(value)
+    for (let i=0; i < length; i++) {
+      const index = h2t? list.indexOf(value) : list.lastIndexOf(value)
       if (index == -1) break
       list.splice(index, 1)
     }
-    this.store._array[key] = list
     return 0
   }
 
