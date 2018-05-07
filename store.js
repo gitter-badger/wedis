@@ -187,7 +187,8 @@ class Dal {
 
   // List
   async lrangeAsync(key, l, r) {
-    return (this.store._array[key]|| [])[l, r]
+    if (r == -1) return  (this.store._array[key]|| []).slice(l)
+    return (this.store._array[key]|| []).slice(l, r)
   }
 
   async rpushAsync(key, value) {
