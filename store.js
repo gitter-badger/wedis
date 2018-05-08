@@ -98,7 +98,7 @@ class Dal {
     return [this.store._string, this.store._array, this.store._zset, this.store._hash]
   }
 
-  async deleteKey(key) {
+  async delAsync(key) {
     delete this.store._string[key]
     delete this.store._array[key]
     delete this.store._zset[key]
@@ -115,11 +115,6 @@ class Dal {
     return exist
   }
 
-  async delAsync(key) {
-    delete this.store._string[key] 
-    return 0
-  }
-  
   async setnxAsync(key, value, ex, exValue) {
     if (this.store._string[key] != null) return 0 
     await this.setAsync(key, value, ex, exValue)
