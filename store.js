@@ -22,6 +22,8 @@ class Store {
     this._zset = {}
     this._array = {}
     this._hash = {}
+    
+    this._ready = false
 
     // init
     this.init()
@@ -35,6 +37,7 @@ class Store {
 
   async init() {
     await this.load()
+    this._ready = true
     this.setInterval(this.dump.bind(this), this.dumpInterval)
   }
 
